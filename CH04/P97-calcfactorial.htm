@@ -4,20 +4,50 @@
 <head>
 <title>Example</title>
 <script language="JavaScript" type="text/javascript">
-function calcFactorial(factorialNumber)
+function butCalculate_onclick()
 {
-	var factorialResult = 1;
-	for (; factorialNumber > 0; factorialNumber--)
+	try
 	{
-		factorialResult = factorialResult * factorialNumber;
+		if (window.top.calcFactorial == null)
+		{
+			throw "This page is not loaded within the correct frameset";
+		}
+		if (document.form1.textNum1.value == "")
+		{
+			throw "!Please enter a value before you calculate its factorial";
+		}
+		if (isNaN(document.form1.txtNum1.value))
+		{
+			throw "!Please enter a valid number";
+		}
+		if(document.form1.txtNum1.value < 0)
+		{
+			throw "!Please enter a positive number";
+		}
+		
+		document.form1.textResult.value = window.parent.calcFactorial(document.form1.txtNum1.value);
 	}
-	return factorialResult;
+	catch(exception)
+	{
+		if (typeof(exception) == "string")
+		{
+			if (exception.charAt(0) == "!")
+			{
+				alert(exception.substr(1));
+				document.form1.txtNum1.focus();
+				document.txtNum1.select();
+			} else {
+				alert(exception);
+			}
+		} else {
+		
+		}
+	}
 }
+
 </script>
 </head>
-<frameset cols="100%,*">
-	<frame name="fraCalcFactorial" src="calcfactorial.htm" />
-</frameset>
+
 
 <body>
 
