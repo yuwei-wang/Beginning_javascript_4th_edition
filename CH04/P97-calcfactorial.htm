@@ -12,7 +12,7 @@ function butCalculate_onclick()
 		{
 			throw "This page is not loaded within the correct frameset";
 		}
-		if (document.form1.textNum1.value == "")
+		if (document.form1.txtNum1.value == "")
 		{
 			throw "!Please enter a value before you calculate its factorial";
 		}
@@ -25,7 +25,7 @@ function butCalculate_onclick()
 			throw "!Please enter a positive number";
 		}
 		
-		document.form1.textResult.value = window.parent.calcFactorial(document.form1.txtNum1.value);
+		document.form1.txtResult.value = window.parent.calcFactorial(document.form1.txtNum1.value);
 	}
 	catch(exception)
 	{
@@ -50,8 +50,10 @@ function butCalculate_onclick()
 
 
 <body>
-
-
-
+<form action="" name="form1">
+	<input type="text" name="txtNum1" size="3" /> factorial is
+	<input type="text" name="txtResult" size="25" /><br />
+	<input type="button" value="Calculate Factorial" name="butCalculate" onclick="butCalculate_onclick()" />
+</form>
 </body>
 </html>
