@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+
+<body>
+
+<script language="JavaScript" type="text/javascript">
+var numbers = new Array(1, 2, 3, 4, 5);
+
+function isLessThan3(value, index, array)
+{
+	var returnValue = false;
+	if (value < 3)
+	{
+		returnValue = true;
+	}
+	alert("value: " + value + " ==> " + returnValue);
+	return returnValue;
+}
+
+alert("Result: " + numbers.some(isLessThan3));
+</script>
+
+</body>
+</html>
