@@ -15,7 +15,7 @@ function CustomerBooking(bookingId, customerName, film, showDate)
 	this.film = film;
 }
 
-CustomerBooking.prototype.getcustomerName = function()
+CustomerBooking.prototype.getCustomerName = function()
 {
 	return this.customerName;
 }
@@ -28,6 +28,11 @@ CustomerBooking.prototype.setCustomerName = function(customerName)
 CustomerBooking.prototype.getShowDate() = function()
 {
 	return this.showDate;
+}
+
+CustomerBooking.prototype.setShowDate = function()
+{
+	this.showDate = showDate;
 }
 
 CustomerBooking.prototype.getFilm = function()
