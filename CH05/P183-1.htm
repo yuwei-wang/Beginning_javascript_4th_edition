@@ -7,6 +7,45 @@
 <body>
 
 <script language="JavaScript" type="text/javascript">
+// Cinema type
+function Cinema()
+{
+	this.bookings = new Array();
+}
+
+Cinema.prototype.addBooking = function(bookingId, customerName, film, showDate)
+{
+	this.bookings[bookingId] = new CustomerBooking(bookingId, customerName, film, showDate);
+}
+
+Cinema.prototype.getBookingsTable = function()
+{
+	var booking;
+	var bookingsTableHTML = "<table border=1>";
+	
+	for (booking in this.bookings)
+	{
+		bookingsTableHTML += "<tr><td>";
+		bookingsTableHTML += this.bookings[booking].getBookingId();
+		bookingsTableHTML += "</td>";
+		
+		bookingsTableHTML += "<td>";
+		bookingsTableHTML += this.bookings[booking].getCustomerName();
+		bookingsTableHTML += "</td>";
+		
+		bookingsTableHTML += "<td>";
+		bookingsTableHTML += this.bookings[booking].getFilm();
+		bookingsTableHTML += "</td>";
+		
+		bookingsTableHTML += "<td>";
+		bookingsTableHTML += this.bookings[booking].getShowDate();
+		bookingsTableHTML += "</td>";
+		bookingsTableHTML += "</tr>";
+	}
+	
+	bookingsTableHTML += "</table>";
+	return bookingsTableHTML;
+}
 </script>
 
 </body>
